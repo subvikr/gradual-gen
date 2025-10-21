@@ -2,20 +2,31 @@ import { LoadingAnimation } from "@/components/LoadingAnimation";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
+import { CapabilitiesPreview } from "@/components/CapabilitiesPreview";
+import { ProcessOverview } from "@/components/ProcessOverview";
+import { ProductsPreview } from "@/components/ProductsPreview";
+import { Certifications } from "@/components/Certifications";
+import { Testimonials } from "@/components/Testimonials";
+import { FAQ } from "@/components/FAQ";
+import { CTASection } from "@/components/CTASection";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
     <>
       <LoadingAnimation />
       <Navigation />
-      <div className="bg-black min-h-screen">
+      <div className="bg-black">
         <HeroSection />
         <AboutSection />
-        
-        {/* Placeholder for additional sections - will be added next */}
-        <div className="h-screen flex items-center justify-center">
-          <p className="text-secondary text-xl">More sections coming...</p>
-        </div>
+        <CapabilitiesPreview />
+        <ProcessOverview />
+        <ProductsPreview />
+        <Certifications />
+        <Testimonials />
+        <FAQ />
+        <CTASection />
+        <Footer />
       </div>
     </>
   );
