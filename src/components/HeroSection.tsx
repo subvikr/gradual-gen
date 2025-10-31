@@ -25,9 +25,9 @@ export function HeroSection() {
         transition={{ duration: 1, delay: 2.5 }}
         className="relative z-20 text-center px-4"
       >
-        <h1 className="font-heading tracking-tight uppercase">
-          <span className="text-6xl md:text-8xl lg:text-9xl text-white">CAPITAL </span>
-          <span className="text-6xl md:text-8xl lg:text-9xl text-secondary">KNIT</span>
+        <h1 className="font-heading tracking-tight uppercase whitespace-nowrap">
+          <span className="text-[9rem] md:text-[12rem] lg:text-[13.5rem] text-white">CAPITAL</span>
+          <span className="text-[9rem] md:text-[12rem] lg:text-[13.5rem] text-secondary">KNIT</span>
         </h1>
       </motion.div>
     </section>

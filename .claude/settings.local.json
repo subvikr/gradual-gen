@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\Users\\vikra\\Documents\\Bruhm\\CapitalKnit\\logo\")",
+      "Bash(dir public)",
+      "Bash(copy \"C:\\Users\\vikra\\Documents\\Bruhm\\CapitalKnit\\logo\\Currentlogo.png\" \"public\\favicon.png\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
