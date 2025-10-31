@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { Home } from "lucide-react";
 
 export function Navigation() {
   const location = useLocation();
@@ -31,23 +30,24 @@ export function Navigation() {
   };
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4"
-    >
-      <div className="bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-6 py-3">
-        <div className="flex items-center justify-between">
-          <Link 
-            to="/" 
-            className="text-white hover:text-primary transition-colors"
-            aria-label="Home"
-          >
-            <Home className="h-6 w-6" />
-          </Link>
-          
-          <ul className="flex items-center gap-4 md:gap-6">
+    <>
+      {/* CK Logo - Separate from navbar */}
+      <Link 
+        to="/" 
+        className="fixed top-6 left-6 z-50 text-2xl font-bold text-white hover:text-primary transition-colors"
+      >
+        CK
+      </Link>
+
+      {/* Centered Navigation Bar */}
+      <motion.nav
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
+      >
+        <div className="bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-8 py-4">
+          <ul className="flex items-center gap-6 md:gap-8">
           {navLinks.map((link) => (
             <li key={link.name}>
               {link.isScroll ? (
@@ -74,7 +74,7 @@ export function Navigation() {
           ))}
         </ul>
         </div>
-      </div>
-    </motion.nav>
+      </motion.nav>
+    </>
   );
 }
