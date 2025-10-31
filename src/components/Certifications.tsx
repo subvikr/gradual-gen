@@ -24,7 +24,7 @@ export function Certifications() {
   ];
 
   return (
-    <section className="min-h-screen bg-white py-20 px-4">
+    <section id="certifications" className="min-h-screen bg-white py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

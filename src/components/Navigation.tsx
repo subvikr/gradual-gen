@@ -7,11 +7,11 @@ export function Navigation() {
   const navLinks = [
     { name: "Home", path: "/", isScroll: false },
     { name: "About", path: "/#about", isScroll: true },
-    { name: "Capabilities", path: "/capabilities", isScroll: false },
-    { name: "Process", path: "/process", isScroll: false },
-    { name: "Products", path: "/products", isScroll: false },
+    { name: "Capabilities", path: "/#capabilities", isScroll: true },
+    { name: "Process", path: "/#process", isScroll: true },
+    { name: "Products", path: "/#products", isScroll: true },
     { name: "Certifications", path: "/#certifications", isScroll: true },
-    { name: "Contact", path: "/contact", isScroll: false },
+    { name: "Contact", path: "/#contact", isScroll: true },
   ];
 
   const handleScrollLink = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {

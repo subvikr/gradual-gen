@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function CTASection() {
   return (
-    <section className="min-h-[60vh] bg-black py-20 px-4 relative overflow-hidden">
+    <section id="contact" className="min-h-[60vh] bg-black py-20 px-4 relative overflow-hidden">
       {/* Gold gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-orange-400/10 to-yellow-400/10" />
       
