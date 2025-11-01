@@ -24,7 +24,7 @@ export function Certifications() {
   ];
 
   return (
-    <section className="min-h-screen bg-white py-20 px-4">
+    <section id="certifications" className="min-h-screen bg-white py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,12 +42,8 @@ export function Certifications() {
           {certifications.map((cert, index) => {
             const Icon = cert.icon;
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="bg-white border-2 border-gray-200 p-8 rounded-lg shadow-xl hover:border-yellow-400 hover:shadow-2xl transition-all"
               >
                 <Icon className="w-16 h-16 text-yellow-500 mb-6" />
@@ -60,7 +56,7 @@ export function Certifications() {
                 <p className="text-gray-700 text-base leading-relaxed">
                   {cert.description}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

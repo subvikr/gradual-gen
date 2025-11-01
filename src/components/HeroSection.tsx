@@ -23,12 +23,29 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 2.5 }}
-        className="relative z-20 text-center px-4"
+        className="relative z-20 text-center px-4 flex flex-col items-center"
       >
-        <h1 className="font-heading tracking-tight uppercase whitespace-nowrap">
-          <span className="text-[9rem] md:text-[12rem] lg:text-[13.5rem] text-white">CAPITAL</span>
-          <span className="text-[9rem] md:text-[12rem] lg:text-[13.5rem] text-secondary">KNIT</span>
+        {/* Centered Favicon - Mobile/Tablet only */}
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="md:hidden mb-2 cursor-pointer"
+        >
+          <img src="/logo.png" alt="Capital Knit Logo" className="w-[225px] h-[225px]" />
+        </a>
+
+        <h1 className="font-heading tracking-tight uppercase leading-[2.625] scale-y-125">
+          <span className="text-[2.5rem] xs:text-[3.5rem] sm:text-[5rem] md:text-[6.75rem] lg:text-[9rem] xl:text-[10.125rem] text-white whitespace-nowrap">CAPITAL</span>
+          <span className="text-[2.5rem] xs:text-[3.5rem] sm:text-[5rem] md:text-[6.75rem] lg:text-[9rem] xl:text-[10.125rem] text-secondary whitespace-nowrap">KNIT</span>
         </h1>
+
+        {/* Tagline - Mobile/Tablet only */}
+        <p className="md:hidden mt-4 text-gray-400 text-sm sm:text-base italic">
+          A Legacy of Resilience and Trust
+        </p>
       </motion.div>
     </section>
   );

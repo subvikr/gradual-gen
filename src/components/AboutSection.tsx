@@ -21,7 +21,7 @@ export function AboutSection() {
   ];
 
   return (
-    <section className="min-h-screen bg-black py-20 px-4">
+    <section id="about" className="min-h-screen bg-black py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
           {/* Left side - Sticky text content */}
@@ -33,8 +33,17 @@ export function AboutSection() {
               transition={{ duration: 0.6 }}
               className="font-heading text-4xl md:text-5xl lg:text-6xl text-white"
             >
-              Crafting Quality Since 1998
+              About Us
             </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl md:text-2xl text-secondary italic"
+            >
+              Crafting Quality Since 1998
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, x: -50 }}

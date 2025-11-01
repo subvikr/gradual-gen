@@ -3,7 +3,10 @@
     "allow": [
       "Bash(dir \"C:\\Users\\vikra\\Documents\\Bruhm\\CapitalKnit\\logo\")",
       "Bash(dir public)",
-      "Bash(copy \"C:\\Users\\vikra\\Documents\\Bruhm\\CapitalKnit\\logo\\Currentlogo.png\" \"public\\favicon.png\")"
+      "Bash(copy \"C:\\Users\\vikra\\Documents\\Bruhm\\CapitalKnit\\logo\\Currentlogo.png\" \"public\\favicon.png\")",
+      "Bash(powershell -Command \"Get-Item public\\favicon.png | Select-Object Name, Length\")",
+      "Bash(copy \"C:\\Users\\vikra\\Documents\\Bruhm\\CapitalKnit\\logo\\CapitalKnit - Logo2.png\" \"public\\logo.png\")",
+      "Bash(powershell -Command:*)"
     ],
     "deny": [],
     "ask": []
