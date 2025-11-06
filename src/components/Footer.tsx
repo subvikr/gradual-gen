@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -72,8 +72,14 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2">
+                <Phone className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                <a href="tel:+919843996900" className="hover:text-white transition-colors">
+                  +91 98439 96900
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <span>India</span>
+                <span>SF.No:97/1B,1A, Uppilipalayam, Arulpuram,<br />Karaiudur,<br />Tirupur - 641605,<br />India.</span>
               </li>
             </ul>
           </div>

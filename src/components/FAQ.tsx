@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
@@ -43,33 +42,23 @@ export function FAQ() {
   return (
     <section className="min-h-screen bg-black py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6">
             Frequently Asked Questions
           </h2>
-        </motion.div>
+        </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
               className={`border-b border-white/10 ${openIndex === index ? 'border-l-4 border-l-yellow-400' : ''} transition-all`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full text-left p-6 hover:bg-white/5 transition-colors flex justify-between items-center gap-4"
               >
-                <span className="font-heading text-white text-lg md:text-xl">
+                <span className="text-white text-lg md:text-xl font-normal">
                   {faq.question}
                 </span>
                 <ChevronDown
@@ -78,20 +67,16 @@ export function FAQ() {
                   }`}
                 />
               </button>
-              <motion.div
-                initial={false}
-                animate={{
-                  height: openIndex === index ? 'auto' : 0,
-                  opacity: openIndex === index ? 1 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}
               >
                 <p className="text-secondary text-base md:text-lg px-6 pb-6 leading-relaxed">
                   {faq.answer}
                 </p>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

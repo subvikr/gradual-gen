@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Shield, Lock, Award } from "lucide-react";
 
 const Certifications = () => {
+  const navigate = useNavigate();
   const certifications = [
     {
       icon: Award,
@@ -68,10 +68,7 @@ const Certifications = () => {
       <section className="min-h-[60vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-400/5 to-transparent" />
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+          <div
             className="text-center"
           >
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl mb-6">
@@ -80,22 +77,18 @@ const Certifications = () => {
             <p className="text-secondary text-xl md:text-2xl max-w-3xl mx-auto">
               Ethics, Security & Quality Standards
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Introduction */}
       <section className="py-16 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <p
             className="text-secondary text-lg md:text-xl leading-relaxed text-center"
           >
             Capital Knit holds internationally recognized certifications that validate our commitment to ethical manufacturing, supply chain security, and export excellence. These certifications are not just badges—they represent our unwavering dedication to operating with integrity, protecting worker welfare, and delivering quality that meets global standards.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -106,12 +99,8 @@ const Certifications = () => {
             const Icon = cert.icon;
             
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
               >
                 <div>
@@ -149,7 +138,7 @@ const Certifications = () => {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -158,11 +147,7 @@ const Certifications = () => {
       {/* Why Certifications Matter */}
       <section className="py-20 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
             className="text-center"
           >
             <h2 className="font-heading text-4xl md:text-5xl mb-6">
@@ -188,18 +173,14 @@ const Certifications = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
           >
             <h2 className="font-heading text-4xl md:text-5xl mb-4">
               Partner With a Certified Manufacturer
@@ -207,16 +188,16 @@ const Certifications = () => {
             <p className="text-secondary text-lg mb-8">
               Learn more about how our certifications benefit your brand
             </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-lg"
-              >
-                Get in Touch
-              </motion.button>
-            </Link>
-          </motion.div>
+            <button
+              onClick={() => {
+                navigate("/contact");
+                window.scrollTo({ top: 0, behavior: "instant" });
+              }}
+              className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-lg hover:scale-105 transition-transform"
+            >
+              Get in Touch
+            </button>
+          </div>
         </div>
       </section>
 

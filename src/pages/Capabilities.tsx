@@ -1,14 +1,15 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Sparkles, Award, Leaf, Cpu, Wrench, Globe, ArrowRight } from "lucide-react";
 
 const Capabilities = () => {
+  const navigate = useNavigate();
   const capabilities = [
     {
       icon: Sparkles,
       title: "Integrated Manufacturing Excellence",
+      image: "/capabilities/Integrated Manufacturing Excellence.png",
       description: "Our full-spectrum production capabilities encompass every aspect of knitwear manufacturing. From cutting and sewing to finishing and packaging, we maintain complete control over the production process, ensuring consistency, quality, and efficiency.",
       fullText: "With advanced machinery spanning knitting, dyeing, printing, and garment construction, Capital Knit can handle projects of any scale—from small batch custom orders to large-scale production runs for major retailers. Our integrated approach eliminates the need for multiple vendors, streamlining timelines and reducing complexity. Our facility's capacity, combined with a skilled workforce of 200+ professionals, enables us to meet demanding schedules without compromising quality standards.",
       benefits: [
@@ -22,6 +23,7 @@ const Capabilities = () => {
     {
       icon: Award,
       title: "Quality Assurance & AQL Standards",
+      image: "/capabilities/Quality Assurance & AQL Standards.png",
       description: "Quality is non-negotiable at Capital Knit. We maintain rigorous AQL (Acceptable Quality Limit) standards throughout every phase of production, backed by multi-stage inspection processes and dedicated quality control laboratories.",
       fullText: "Our QC team conducts comprehensive testing including fabric integrity checks, colorfastness testing, dimensional stability analysis, and garment construction verification. Every piece is inspected before it leaves our facility, ensuring only products that meet international standards reach our clients. Through continuous monitoring, data-driven process improvements, and investment in testing equipment, we've built a quality management system that consistently exceeds client expectations.",
       benefits: [
@@ -35,6 +37,7 @@ const Capabilities = () => {
     {
       icon: Leaf,
       title: "Sustainable & Ethical Production",
+      image: "/capabilities/Sustainable & Ethical Production.png",
       description: "As a WRAP-certified manufacturer, Capital Knit is committed to ethical manufacturing practices, worker welfare, and environmental responsibility. Our certification validates our adherence to international labor standards, safe working conditions, and fair employment practices.",
       fullText: "Sustainability is woven into every aspect of our operations—from energy-efficient machinery and water conservation systems to responsible waste management and eco-friendly material sourcing. We partner with suppliers who share our commitment to environmental stewardship. Our workforce enjoys safe working conditions, fair wages, and professional development opportunities. By investing in our people and our planet, we create value that extends far beyond the products we manufacture.",
       benefits: [
@@ -48,6 +51,7 @@ const Capabilities = () => {
     {
       icon: Cpu,
       title: "Advanced Technology Integration",
+      image: "/capabilities/Advanced Technology Integration.png",
       description: "Capital Knit leverages cutting-edge technology to deliver precision, efficiency, and innovation. Our facility features sophisticated knitting machinery, computer-aided design (CAD) systems, and real-time production monitoring platforms that ensure optimal results.",
       fullText: "CAD integration enables seamless collaboration with clients, allowing for rapid prototyping, pattern adjustments, and design refinements before production begins. Our automated systems reduce human error while maintaining the craftsmanship that defines quality knitwear. From digital pattern-making to automated quality inspections, technology enhances every aspect of our workflow—enabling us to deliver complex designs with consistent accuracy and shorter lead times.",
       benefits: [
@@ -61,6 +65,7 @@ const Capabilities = () => {
     {
       icon: Wrench,
       title: "Factory Re-Engineering & Optimization",
+      image: "/capabilities/Factory Re-Engineering & Optimization.png",
       description: "Continuous improvement is embedded in Capital Knit's culture. We regularly analyze and optimize our value chain, production processes, and operational workflows to enhance efficiency, reduce waste, and improve outcomes.",
       fullText: "Our factory re-engineering initiatives include lean manufacturing principles, workflow optimization, productivity enhancement programs, and investment in workforce training. By identifying bottlenecks and implementing data-driven improvements, we've increased capacity while maintaining quality. This commitment to optimization benefits our clients through faster turnarounds, competitive pricing, and the ability to scale production without sacrificing standards.",
       benefits: [
@@ -74,6 +79,7 @@ const Capabilities = () => {
     {
       icon: Globe,
       title: "Global Logistics & Export Excellence",
+      image: "/capabilities/Global Logistics & Export Excellence.png",
       description: "With extensive international shipping experience, Capital Knit ensures your products reach their destination safely, on time, and with complete documentation. Our logistics team handles customs compliance, export paperwork, and coordination with global shipping partners.",
       fullText: "As members of the Apparel Export Promotion Council (AEPC), we adhere to India's highest export standards and maintain strong relationships with freight forwarders, ensuring reliable delivery to markets across Europe, North America, Asia-Pacific, and beyond. From packaging standards that protect products during transit to real-time shipment tracking, we make global logistics seamless for our clients.",
       benefits: [
@@ -91,13 +97,10 @@ const Capabilities = () => {
       <Navigation />
       
       {/* Hero Banner */}
-      <section className="min-h-[60vh] flex items-center justify-center relative overflow-hidden">
+      <section className="min-h-[40vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-400/5 to-transparent" />
-        <div className="container mx-auto px-4 py-20 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+        <div className="container mx-auto px-4 py-16 relative z-10">
+          <div
             className="text-center"
           >
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl mb-6">
@@ -106,22 +109,18 @@ const Capabilities = () => {
             <p className="text-secondary text-xl md:text-2xl max-w-3xl mx-auto">
               Comprehensive manufacturing excellence backed by 27 years of experience
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Introduction */}
-      <section className="py-16 px-4 border-t border-white/10">
+      <section className="py-8 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <p
             className="text-secondary text-lg md:text-xl leading-relaxed text-center"
           >
             Capital Knit offers a complete suite of knitwear manufacturing capabilities designed to serve international brands seeking reliability, quality, and ethical production. From initial design consultation through global delivery, our integrated approach ensures exceptional results at every stage.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -133,12 +132,8 @@ const Capabilities = () => {
             const isEven = index % 2 === 0;
             
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: 0.2 }}
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isEven ? '' : 'lg:grid-flow-dense'}`}
               >
                 <div className={isEven ? '' : 'lg:col-start-2'}>
@@ -146,7 +141,7 @@ const Capabilities = () => {
                     <div className="p-4 bg-gradient-gold rounded-lg">
                       <Icon className="w-8 h-8 text-black" />
                     </div>
-                    <h2 className="font-heading text-3xl md:text-4xl">
+                    <h2 className="font-heading text-3xl md:text-4xl bg-gradient-gold bg-clip-text text-transparent">
                       {capability.title}
                     </h2>
                   </div>
@@ -183,9 +178,15 @@ const Capabilities = () => {
                 </div>
                 
                 <div className={isEven ? '' : 'lg:col-start-1 lg:row-start-1'}>
-                  <div className="aspect-square rounded-lg bg-gradient-to-br from-yellow-400/20 to-orange-400/20 border border-white/10" />
+                  <div className="aspect-square rounded-lg overflow-hidden border border-white/10">
+                    <img
+                      src={capability.image}
+                      alt={capability.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -194,11 +195,7 @@ const Capabilities = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
           >
             <h2 className="font-heading text-4xl md:text-5xl mb-6">
               Explore How We Can Support Your Brand
@@ -206,16 +203,16 @@ const Capabilities = () => {
             <p className="text-secondary text-lg mb-8">
               Let's discuss how our capabilities can bring your vision to life
             </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-lg"
-              >
-                Request a Consultation
-              </motion.button>
-            </Link>
-          </motion.div>
+            <button
+              onClick={() => {
+                navigate("/contact");
+                window.scrollTo({ top: 0, behavior: "instant" });
+              }}
+              className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-lg hover:scale-105 transition-transform"
+            >
+              Request a Consultation
+            </button>
+          </div>
         </div>
       </section>
 

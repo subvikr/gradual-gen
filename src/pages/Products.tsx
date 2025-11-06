@@ -1,14 +1,15 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Shirt, Wind, CloudSnow, Dumbbell, Sparkles, Palette } from "lucide-react";
 
 const Products = () => {
+  const navigate = useNavigate();
   const products = [
     {
       icon: Shirt,
       title: "T-Shirts & Polos",
+      image: "/products/tshirts-polos.png",
       gradient: "from-blue-500/20 to-purple-500/20",
       description: "Our t-shirt and polo production encompasses a wide variety of styles, fabrics, and finishing options. From classic crew necks to performance-driven athletic tees, we manufacture garments that combine comfort, durability, and style.",
       fullText: "With expertise in single jersey, pique, rib knit, and specialty fabrics, we can accommodate diverse design requirements while maintaining consistent quality across production runs.",
@@ -39,6 +40,7 @@ const Products = () => {
     {
       icon: Wind,
       title: "Sweaters & Cardigans",
+      image: "/products/sweaters-cardigans.png",
       gradient: "from-purple-500/20 to-pink-500/20",
       description: "Our sweater and cardigan production capabilities span a full range of knit patterns, yarn weights, and construction techniques. From classic cable knits to contemporary designs, we manufacture garments that deliver warmth, style, and quality craftsmanship.",
       fullText: "Whether your collection requires lightweight layering pieces or heavy winter sweaters, our facility is equipped to handle diverse yarn types and complex knit patterns.",
@@ -70,6 +72,7 @@ const Products = () => {
     {
       icon: CloudSnow,
       title: "Hoodies & Sweatshirts",
+      image: "/products/hoodies-sweatshirts.png",
       gradient: "from-pink-500/20 to-red-500/20",
       description: "Hoodies and sweatshirts are among our most requested product categories, serving fashion brands, athletic labels, and corporate clients alike. We manufacture both classic and contemporary styles with attention to fit, fabric quality, and construction details.",
       fullText: "Our capabilities include French terry, fleece, and loop knit fabrics, with options for custom branding, specialty washes, and performance features.",
@@ -100,6 +103,7 @@ const Products = () => {
     {
       icon: Palette,
       title: "Dresses & Skirts",
+      image: "/products/dresses-skirts.png",
       gradient: "from-red-500/20 to-orange-500/20",
       description: "Our knit dress and skirt production capabilities cater to fashion brands seeking comfortable, versatile garments that combine style with wearability. From casual jersey dresses to structured knit skirts, we manufacture pieces that meet the demands of contemporary fashion.",
       fullText: "With expertise in various knit constructions and finishing techniques, we can bring diverse design visions to life.",
@@ -130,6 +134,7 @@ const Products = () => {
     {
       icon: Dumbbell,
       title: "Activewear & Performance Knits",
+      image: "/products/activewear-performance-knits.png",
       gradient: "from-green-500/20 to-teal-500/20",
       description: "The activewear sector demands specialized fabrics, construction techniques, and performance features. Capital Knit manufactures technical knitwear that meets the functional requirements of athletic brands while maintaining style and comfort.",
       fullText: "Our performance knit capabilities include moisture-wicking fabrics, four-way stretch materials, and specialized finishing processes that enhance durability and function.",
@@ -161,6 +166,7 @@ const Products = () => {
     {
       icon: Sparkles,
       title: "Custom Design Solutions",
+      image: "/products/custom-design-solutions.png",
       gradient: "from-yellow-500/20 to-orange-500/20",
       description: "Beyond our standard product categories, Capital Knit offers fully customized knitwear manufacturing for brands with unique design visions. Our collaborative approach combines your creative direction with our technical expertise to develop bespoke garments from concept to completion.",
       fullText: "Whether you're launching a new collection, creating limited-edition pieces, or developing private label products, our custom design services provide the flexibility and support you need.",
@@ -198,10 +204,7 @@ const Products = () => {
       <section className="min-h-[60vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-400/5 to-transparent" />
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+          <div
             className="text-center"
           >
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl mb-6">
@@ -210,22 +213,18 @@ const Products = () => {
             <p className="text-secondary text-xl md:text-2xl max-w-3xl mx-auto">
               Versatile knitwear solutions for every need
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Introduction */}
       <section className="py-16 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <p
             className="text-secondary text-lg md:text-xl leading-relaxed text-center"
           >
             Capital Knit manufactures a comprehensive range of knitwear products for international brands across fashion, retail, corporate, and activewear sectors. Whether you need classic basics, performance knits, or custom designs, our capabilities span the full spectrum of knitwear production.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -236,12 +235,8 @@ const Products = () => {
             const Icon = product.icon;
             
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
               >
                 <div>
@@ -261,8 +256,14 @@ const Products = () => {
                   <p className="text-secondary text-base leading-relaxed mb-8">
                     {product.fullText}
                   </p>
-                  
-                  <div className={`aspect-video rounded-lg bg-gradient-to-br ${product.gradient} border border-white/10`} />
+
+                  <div className="aspect-video rounded-lg overflow-hidden border border-white/10 bg-black">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className={`w-full h-full ${product.title === "Sweaters & Cardigans" || product.title === "T-Shirts & Polos" ? "object-fill" : "object-cover"}`}
+                    />
+                  </div>
                 </div>
                 
                 <div className="space-y-6">
@@ -409,7 +410,7 @@ const Products = () => {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -418,11 +419,7 @@ const Products = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
           >
             <h2 className="font-heading text-4xl md:text-5xl mb-4">
               Let's Create Your Next Collection
@@ -430,16 +427,16 @@ const Products = () => {
             <p className="text-secondary text-lg mb-8">
               From classic basics to custom designs, we bring your vision to life
             </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-lg"
-              >
-                Request Product Consultation
-              </motion.button>
-            </Link>
-          </motion.div>
+            <button
+              onClick={() => {
+                navigate("/contact");
+                window.scrollTo({ top: 0, behavior: "instant" });
+              }}
+              className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-lg hover:scale-105 transition-transform"
+            >
+              Request Product Consultation
+            </button>
+          </div>
         </div>
       </section>
 

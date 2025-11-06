@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MessageSquare, Layers, Package, Cog, CheckCircle, Truck } from "lucide-react";
 
 export function ProcessOverview() {
+  const navigate = useNavigate();
   const steps = [
     {
       icon: MessageSquare,
@@ -37,67 +37,51 @@ export function ProcessOverview() {
   ];
 
   return (
-    <section id="process" className="min-h-screen bg-black py-20 px-4">
+    <section id="process" className="min-h-screen bg-white py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+        <div className="text-center mb-16">
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-black mb-6">
             Our Manufacturing Process
           </h2>
-          <p className="text-secondary text-lg md:text-xl max-w-3xl mx-auto">
+          <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
             A proven workflow refined over 27 years
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative bg-black border border-white/10 p-8 rounded-lg hover:border-white/30 hover:-translate-y-2 transition-all"
+                className="relative bg-white border-2 border-yellow-400 p-8 rounded-lg hover:border-gray-200 hover:shadow-2xl transition-all"
               >
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-gold rounded-full flex items-center justify-center font-heading text-black text-xl">
+                <div className="absolute -top-4 -left-4 w-12 h-12 bg-secondary border-2 border-yellow-400 rounded-full flex items-center justify-center font-heading text-white text-xl">
                   {index + 1}
                 </div>
-                <Icon className="w-10 h-10 text-secondary mb-4 mt-4" />
-                <h3 className="font-heading text-xl text-white mb-2">
+                <Icon className="w-10 h-10 text-yellow-500 mb-4 mt-4" />
+                <h3 className="font-heading text-xl text-black mb-2">
                   {step.title}
                 </h3>
-                <p className="text-secondary text-sm">
+                <p className="text-gray-700 text-sm">
                   {step.description}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <Link to="/process">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-base md:text-lg transition-transform"
-            >
-              Explore Detailed Process
-            </motion.button>
-          </Link>
-        </motion.div>
+        <div className="text-center">
+          <button
+            onClick={() => {
+              navigate("/process");
+              window.scrollTo({ top: 0, behavior: "instant" });
+            }}
+            className="px-8 py-4 bg-white border-2 border-gray-200 font-bold rounded-full text-base md:text-lg transition-all hover:border-yellow-400 hover:shadow-xl hover:scale-105"
+          >
+            <span className="bg-gradient-gold bg-clip-text text-transparent">Explore Detailed Process</span>
+          </button>
+        </div>
       </div>
     </section>
   );

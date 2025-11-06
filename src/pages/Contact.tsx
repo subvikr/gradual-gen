@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
@@ -7,24 +6,19 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="min-h-[50vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-400/5 to-transparent" />
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
+          <div className="text-center">
             <h1 className="font-heading text-5xl md:text-7xl mb-6">
               Let's Build Something Together
             </h1>
             <p className="text-secondary text-xl md:text-2xl max-w-3xl mx-auto">
               Reach out for consultations, quotes, or questions about our manufacturing capabilities
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -32,12 +26,7 @@ const Contact = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <h2 className="font-heading text-3xl md:text-4xl mb-8">Send Us a Message</h2>
             <form className="space-y-6">
               {/* Name */}
@@ -135,25 +124,17 @@ const Contact = () => {
               </div>
 
               {/* Submit Button */}
-              <motion.button
+              <button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-gold text-black font-semibold py-4 rounded-lg transition-all shadow-lg hover:shadow-yellow-400/20"
+                className="w-full bg-gradient-gold text-black font-semibold py-4 rounded-lg transition-all shadow-lg hover:shadow-yellow-400/20 hover:scale-105"
               >
                 Send Message
-              </motion.button>
+              </button>
             </form>
-          </motion.div>
+          </div>
 
           {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             <div>
               <h2 className="font-heading text-3xl md:text-4xl mb-8">Other Ways to Reach Us</h2>
               
@@ -181,7 +162,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold text-lg mb-1">Call Us</h3>
-                    <p className="text-secondary">+91 [Contact Number]</p>
+                    <p className="text-secondary">+91 98439 96900</p>
                   </div>
                 </div>
 
@@ -193,8 +174,10 @@ const Contact = () => {
                   <div>
                     <h3 className="text-white font-semibold text-lg mb-1">Visit Us</h3>
                     <p className="text-secondary">
-                      Capital Knit<br />
-                      India
+                      SF.No:97/1B,1A, Uppilipalayam, Arulpuram,<br />
+                      Karaiudur,<br />
+                      Tirupur - 641605,<br />
+                      India.
                     </p>
                   </div>
                 </div>
@@ -231,7 +214,7 @@ const Contact = () => {
                 <li>• Expert guidance</li>
               </ul>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

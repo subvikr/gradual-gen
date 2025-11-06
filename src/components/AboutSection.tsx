@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 export function AboutSection() {
   const stats = [
     {
@@ -23,35 +21,18 @@ export function AboutSection() {
   return (
     <section id="about" className="min-h-screen bg-black py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left side - Sticky text content */}
-          <div className="md:sticky md:top-32 md:self-start space-y-6">
-            <motion.h2
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="font-heading text-4xl md:text-5xl lg:text-6xl text-white"
-            >
-              About Us
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl md:text-2xl text-secondary italic"
-            >
-              Crafting Quality Since 1998
-            </motion.p>
+        {/* About Us Heading - Full width on desktop */}
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+          About Us
+        </h2>
+        <p className="text-xl md:text-2xl text-secondary italic mb-12">
+          Crafting Quality Since 1998
+        </p>
 
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4 text-secondary text-base md:text-lg leading-relaxed"
-            >
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+          {/* Left side - Text content */}
+          <div className="space-y-6">
+            <div className="space-y-4 text-secondary text-base md:text-lg leading-relaxed">
               <p>
                 Since our founding in 1998, Capital Knit has been driven by a singular vision: to become India's premier knitwear manufacturing partner for global brands. What started as an ambitious endeavor has evolved into a thriving operation backed by cutting-edge technology, a skilled workforce, and an unwavering commitment to quality.
               </p>
@@ -63,27 +44,23 @@ export function AboutSection() {
               <p>
                 Today, we proudly serve international fashion brands, retailers, and corporate clients who demand reliability, ethical practices, and uncompromising quality standards.
               </p>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Right side - Scrollable statistics cards */}
-          <div className="space-y-6">
+          {/* Right side - Statistics cards in 2x2 grid */}
+          <div className="grid grid-cols-2 gap-6 lg:gap-[50px]">
             {stats.map((stat, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-muted/50 border border-white/10 p-8 rounded-lg hover:border-white/20 transition-colors"
+                className="bg-muted/50 border border-white/10 p-6 rounded-lg hover:border-white/20 transition-colors w-48 h-36 md:w-40 md:h-32 lg:w-60 flex flex-col justify-center"
               >
-                <div className="text-4xl md:text-5xl font-heading bg-gradient-gold bg-clip-text text-transparent mb-4">
+                <div className="text-2xl md:text-3xl font-heading bg-gradient-gold bg-clip-text text-transparent mb-2">
                   {stat.number}
                 </div>
-                <div className="text-white text-lg md:text-xl">
+                <div className="text-secondary text-sm md:text-base">
                   {stat.label}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

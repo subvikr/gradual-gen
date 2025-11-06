@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { MessageSquare, Layers, Package, Cog, CheckCircle, Truck } from "lucide-react";
 
 const Process = () => {
+  const navigate = useNavigate();
   const steps = [
     {
       number: 1,
@@ -162,10 +162,7 @@ const Process = () => {
       <section className="min-h-[60vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-400/5 to-transparent" />
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+          <div
             className="text-center"
           >
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl mb-6">
@@ -174,22 +171,18 @@ const Process = () => {
             <p className="text-secondary text-xl md:text-2xl max-w-3xl mx-auto">
               A proven workflow refined over 27 years
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Introduction */}
       <section className="py-16 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <p
             className="text-secondary text-lg md:text-xl leading-relaxed text-center"
           >
             Capital Knit's manufacturing process has been refined over nearly three decades to deliver consistent quality, efficient timelines, and transparent collaboration. From initial consultation through global delivery, every step is designed to meet the exacting standards of international brands.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -205,12 +198,8 @@ const Process = () => {
               const isEven = index % 2 === 0;
               
               return (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8 }}
                   className={`relative grid md:grid-cols-2 gap-8 ${isEven ? '' : 'md:grid-flow-dense'}`}
                 >
                   {/* Number Badge - Center on desktop */}
@@ -299,7 +288,7 @@ const Process = () => {
                       )}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -309,11 +298,7 @@ const Process = () => {
       {/* Timeline Summary */}
       <section className="py-16 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
             className="bg-white/5 border border-white/10 rounded-lg p-8"
           >
             <h3 className="font-heading text-2xl mb-6">Full Process Timeline</h3>
@@ -329,18 +314,14 @@ const Process = () => {
             <p className="text-secondary text-sm mt-6 italic">
               Note: Timelines can be adjusted based on order volume, complexity, and urgency. Rush orders may be accommodated with advance planning.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
           >
             <h2 className="font-heading text-4xl md:text-5xl mb-4">
               Ready to Begin Your Project?
@@ -348,16 +329,16 @@ const Process = () => {
             <p className="text-secondary text-lg mb-8">
               Our proven process ensures quality results from concept to delivery
             </p>
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-lg"
-              >
-                Start Your Project
-              </motion.button>
-            </Link>
-          </motion.div>
+            <button
+              onClick={() => {
+                navigate("/contact");
+                window.scrollTo({ top: 0, behavior: "instant" });
+              }}
+              className="px-8 py-4 bg-gradient-gold text-black font-bold rounded-full text-lg hover:scale-105 transition-transform"
+            >
+              Start Your Project
+            </button>
+          </div>
         </div>
       </section>
 
