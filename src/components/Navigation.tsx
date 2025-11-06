@@ -39,6 +39,7 @@ export function Navigation() {
     { name: "Clients", path: "/#clients", isScroll: true },
     { name: "Certifications", path: "/#certifications", isScroll: true },
     { name: "Contact", path: "/#contact", isScroll: true },
+    { name: "Login", path: "/login", isScroll: false },
   ];
 
   const handleScrollLink = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -120,7 +121,17 @@ export function Navigation() {
             <li key={link.name}>
               <a
                 href={link.path}
-                onClick={(e) => (link as any).isHome ? handleHomeClick(e) : handleScrollLink(e, link.path.split("#")[1])}
+                onClick={(e) => {
+                  if ((link as any).isHome) {
+                    handleHomeClick(e);
+                  } else if (link.isScroll) {
+                    handleScrollLink(e, link.path.split("#")[1]);
+                  } else {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    navigate(link.path);
+                  }
+                }}
                 className="text-sm md:text-base text-gray-400 hover:text-white transition-colors cursor-pointer"
               >
                 {link.name}
@@ -141,7 +152,17 @@ export function Navigation() {
                 <li key={link.name}>
                   <a
                     href={link.path}
-                    onClick={(e) => (link as any).isHome ? handleHomeClick(e) : handleScrollLink(e, link.path.split("#")[1])}
+                    onClick={(e) => {
+                      if ((link as any).isHome) {
+                        handleHomeClick(e);
+                      } else if (link.isScroll) {
+                        handleScrollLink(e, link.path.split("#")[1]);
+                      } else {
+                        e.preventDefault();
+                        setIsMobileMenuOpen(false);
+                        navigate(link.path);
+                      }
+                    }}
                     className="text-lg text-gray-400 hover:text-white transition-colors cursor-pointer block text-center"
                   >
                     {link.name}
